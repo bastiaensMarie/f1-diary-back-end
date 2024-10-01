@@ -1,10 +1,18 @@
 package com.f1diary.f1diary_back_end.Race.Model;
 
+import com.f1diary.f1diary_back_end.RaceResult.Model.RaceResult;
+import com.f1diary.f1diary_back_end.Racer.Model.Racer;
+import com.f1diary.f1diary_back_end.Team.Model.Team;
 import jakarta.persistence.*;
 
+import java.util.List;
 
+@Entity
+@Table(name="Race")
 public class Race {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long race_id;
 
     private String raceName;
@@ -13,25 +21,30 @@ public class Race {
 
     private int year;
 
-    private Long dod_id;
+    @ManyToOne
+    @JoinColumn(name = "dod")
+    private Racer dod_id;
 
-    private Long fastLap_id;
+    @ManyToOne
+    @JoinColumn(name = "fastLap")
+    private Racer fastLap_id;
 
-    private Long pitStop_id;
+    @ManyToOne
+    @JoinColumn(name = "pitStop")
+    private Team pitStop;
+
+    @OneToMany(mappedBy = "race_id")
+    private List<RaceResult> raceResults;
 
 
     public Race() {
 
     }
 
-    public Race(Long race_id, String raceName, String location, int year, Long dod_id, Long fastLap_id, Long pitStop_id) {
-        this.race_id = race_id;
+    public Race( String raceName, String location, int year) {
         this.raceName = raceName;
         this.location = location;
         this.year = year;
-        this.dod_id = dod_id;
-        this.fastLap_id = fastLap_id;
-        this.pitStop_id = pitStop_id;
     }
 
 
@@ -67,27 +80,28 @@ public class Race {
         this.year = year;
     }
 
-    public Long getDod_id() {
+    public Racer getDod_id() {
         return dod_id;
     }
 
-    public void setDod_id(Long dod_id) {
+    public void setDod_id(Racer dod_id) {
         this.dod_id = dod_id;
     }
 
-    public Long getFastLap_id() {
+    public Racer getFastLap_id() {
         return fastLap_id;
     }
 
-    public void setFastLap_id(Long fastLap_id) {
+    public void setFastLap_id(Racer fastLap_id) {
         this.fastLap_id = fastLap_id;
     }
 
-    public Long getPitStop_id() {
-        return pitStop_id;
+
+    public Team getPitStop() {
+        return pitStop;
     }
 
-    public void setPitStop_id(Long pitStop_id) {
-        this.pitStop_id = pitStop_id;
+    public void setPitStop(Team pitStop) {
+        this.pitStop = pitStop;
     }
 }

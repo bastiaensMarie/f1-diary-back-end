@@ -19,6 +19,7 @@ public class Race {
 
     private String location;
 
+    @Column(name="race_year")
     private int year;
 
     @ManyToOne

@@ -2,6 +2,8 @@ package com.f1diary.f1diary_back_end.Racer.Service;
 
 import com.f1diary.f1diary_back_end.Racer.Model.Racer;
 import com.f1diary.f1diary_back_end.Racer.Repository.RacerRepository;
+import com.f1diary.f1diary_back_end.Team.Model.Team;
+import com.f1diary.f1diary_back_end.Team.Repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ public class RacerService {
 
     @Autowired
     RacerRepository racerRepository;
+    TeamRepository teamRepository;
 
     public RacerService() {
 
@@ -37,6 +40,19 @@ public class RacerService {
         } else {
             racerRepository.delete(toRemove);
             return toRemove;
+        }
+    }
+
+    public Racer addTeamToRacer(Long teamId, Long racerId) throws RacerServiceException {
+        Team toAdd = teamRepository.findTeamByTeamId(teamId);
+        Racer racer = racerRepository.findRacerByRacerId(racerId);
+        if (toAdd == null) {
+            throw new RacerServiceException("Racer", "Cannot add to empty team");
+        } else if (racer == null){
+            throw new RacerServiceException("Racer", "Cannot add empty racer to team");
+        } else {
+            racer.setTeam(toAdd);
+            return racer;
         }
     }
 }

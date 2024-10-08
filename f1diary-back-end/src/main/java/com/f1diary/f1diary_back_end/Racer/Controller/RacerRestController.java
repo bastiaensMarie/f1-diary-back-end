@@ -34,6 +34,11 @@ public class RacerRestController {
         return racerService.removeRacer(racerId);
     }
 
+    @PutMapping("/addTeam/{teamId}/{racerId}")
+    public Racer addTeamToRacer(@PathVariable int teamId, @PathVariable int racerId) throws RacerServiceException {
+        return racerService.addTeamToRacer((long) teamId, (long)racerId);
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({ MethodArgumentNotValidException.class })
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {

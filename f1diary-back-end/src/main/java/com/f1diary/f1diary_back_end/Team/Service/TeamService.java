@@ -18,7 +18,7 @@ public class TeamService {
     }
 
     public List<Team> getAllTeams() {
-        return teamRepository.findAllTeams();
+        return teamRepository.findAll();
     }
 
     public Team addTeam(Team team) throws TeamServiceException {
@@ -29,8 +29,8 @@ public class TeamService {
         }
     }
 
-    public Team removeTeam(Long team_id) throws TeamServiceException {
-        Team toRemove = teamRepository.findTeamByTeamId(team_id);
+    public Team removeTeam(Long teamId) throws TeamServiceException {
+        Team toRemove = teamRepository.findTeamByTeamId(teamId);
         if (toRemove == null) {
             throw new TeamServiceException("Team", "Cannot remove empty team");
         } else {

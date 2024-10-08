@@ -6,6 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface TeamRepository extends JpaRepository<Team, Long> {
-    public List<Team> findAllTeams();
-    public Team findTeamByTeamId(Long team_id);
+    public Team findTeamByTeamId(Long teamId);
 }

@@ -19,7 +19,7 @@ public class RaceResultService {
     }
 
     public List<RaceResult> getAllRaceResults() {
-        return raceResultRepository.findAllRaceResults();
+        return raceResultRepository.findAll();
     }
 
     public RaceResult addRaceResult(RaceResult raceResult) throws RaceResultServiceException {
@@ -30,8 +30,8 @@ public class RaceResultService {
         }
     }
 
-    public RaceResult removeRaceResult(Long raceResult_id) throws RaceResultServiceException {
-        RaceResult toRemove = raceResultRepository.findRaceResultByRaceResultId(raceResult_id);
+    public RaceResult removeRaceResult(Long raceResultId) throws RaceResultServiceException {
+        RaceResult toRemove = raceResultRepository.findRaceResultByRaceResultId(raceResultId);
         if (toRemove == null) {
             throw new RaceResultServiceException("RaceResult", "Cannot remove empty raceresult");
         } else {

@@ -12,19 +12,19 @@ public class RaceResult {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long raceResult_id;
+    private Long raceResultId;
 
     @ManyToOne
-    @JoinColumn(name = "race_id")
-    private Race race_id;
+    @JoinColumn(name = "raceId")
+    private Race raceId;
 
     @ManyToOne
-    @JoinColumn(name = "racer_id")
-    private Racer racer_id;
+    @JoinColumn(name = "racerId")
+    private Racer racerId;
 
     @ManyToOne
-    @JoinColumn(name = "team_id")
-    private Team team_id;
+    @JoinColumn(name = "teamId")
+    private Team teamId;
 
     private int position;
 
@@ -39,36 +39,36 @@ public class RaceResult {
         this.points = points;
     }
 
-    public Long getRaceResult_id() {
-        return raceResult_id;
+    public Long getRaceResultId() {
+        return raceResultId;
     }
 
-    public void setRaceResult_id(Long raceResult_id) {
-        this.raceResult_id = raceResult_id;
+    public void setRaceResultId(Long raceResultId) {
+        this.raceResultId = raceResultId;
     }
 
-    public Racer getRacer_id() {
-        return racer_id;
+    public Racer getRacerId() {
+        return racerId;
     }
 
-    public void setRacer_id(Racer racer_id) {
-        this.racer_id = racer_id;
+    public void setRacerId(Racer racerId) {
+        this.racerId = racerId;
     }
 
-    public Race getRace_id() {
-        return race_id;
+    public Race getRaceId() {
+        return raceId;
     }
 
-    public void setRace_id(Race race_id) {
-        this.race_id = race_id;
+    public void setRaceId(Race raceId) {
+        this.raceId = raceId;
     }
 
-    public Team getTeam_id() {
-        return team_id;
+    public Team getTeamId() {
+        return teamId;
     }
 
-    public void setTeam_id(Team team_id) {
-        this.team_id = team_id;
+    public void setTeamId(Team teamId) {
+        this.teamId = teamId;
     }
 
     public int getPosition() {

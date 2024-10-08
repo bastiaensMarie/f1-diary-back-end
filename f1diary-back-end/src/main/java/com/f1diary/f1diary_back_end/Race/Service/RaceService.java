@@ -18,7 +18,7 @@ public class RaceService {
     }
 
     public List<Race> getRaces() {
-        return raceRepository.findAllRaces();
+        return raceRepository.findAll();
 
     }
 
@@ -31,8 +31,8 @@ public class RaceService {
         }
     }
 
-    public Race removeRace(Long race_id) throws RaceServiceException{
-        Race toRemove = raceRepository.findRaceByRaceId(race_id);
+    public Race removeRace(Long raceId) throws RaceServiceException{
+        Race toRemove = raceRepository.findRaceByRaceId(raceId);
         if (toRemove == null) {
             throw new RaceServiceException("Race", "Cannot remove race that does not exist");
         } else {

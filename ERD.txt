@@ -18,7 +18,7 @@ Creating an effective Entity-Relationship Diagram (ERD) is crucial for structuri
 - `driverNumber`
 - `nationality`
 - `dateOfBirth`
-- `team_id` (Foreign Key referencing **Team**)
+- `teamId` (Foreign Key referencing **Team**)
 
 **Relationships:**
 - **Racer** belongs to one **Team**.
@@ -60,9 +60,9 @@ Creating an effective Entity-Relationship Diagram (ERD) is crucial for structuri
 
 **Attributes:**
 - `id` (Primary Key)
-- `race_id` (Foreign Key referencing **Race**)
-- `racer_id` (Foreign Key referencing **Racer**)
-- `team_id` (Foreign Key referencing **Team**)
+- `raceId` (Foreign Key referencing **Race**)
+- `racerId` (Foreign Key referencing **Racer**)
+- `teamId` (Foreign Key referencing **Team**)
 - `position` (Integer indicating finish order)
 - `points` (Integer indicating points earned)
 
@@ -125,7 +125,7 @@ For better visualization, here's a more detailed textual ERD using Crow's Foot n
 - driverNumber
 - nationality
 - dateOfBirth
-- team_id (FK)
+- teamId (FK)
 
 [Team]
 - id (PK)
@@ -146,9 +146,9 @@ For better visualization, here's a more detailed textual ERD using Crow's Foot n
 
 [RaceResult]
 - id (PK)
-- race_id (FK to Race)
-- racer_id (FK to Racer)
-- team_id (FK to Team)
+- raceId (FK to Race)
+- racerId (FK to Racer)
+- teamId (FK to Team)
 - position
 - points
 
@@ -174,7 +174,7 @@ Relationships:
    - Use appropriate constraints to ensure that attributes like `driverOfTheDay_id` and `fastestLap_id` reference **Racers** participating in that **Race**.
 
 4. **Performance Optimization:**
-   - Index frequently queried fields such as `race_id`, `racer_id`, and `team_id` in **RaceResult** to enhance query performance for leaderboards.
+   - Index frequently queried fields such as `raceId`, `racerId`, and `teamId` in **RaceResult** to enhance query performance for leaderboards.
 
 ### **Implementation Steps in Spring Boot**
 
@@ -211,7 +211,7 @@ public class Racer {
     private LocalDate dateOfBirth;
     
     @ManyToOne
-    @JoinColumn(name = "team_id")
+    @JoinColumn(name = "teamId")
     private Team team;
     
     // Getters and Setters
@@ -273,15 +273,15 @@ public class RaceResult {
     private Integer points;
     
     @ManyToOne
-    @JoinColumn(name = "race_id")
+    @JoinColumn(name = "raceId")
     private Race race;
     
     @ManyToOne
-    @JoinColumn(name = "racer_id")
+    @JoinColumn(name = "racerId")
     private Racer racer;
     
     @ManyToOne
-    @JoinColumn(name = "team_id")
+    @JoinColumn(name = "teamId")
     private Team team;
     
     // Getters and Setters

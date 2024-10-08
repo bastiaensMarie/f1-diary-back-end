@@ -32,8 +32,8 @@ public class RaceRestController {
     }
 
     @DeleteMapping("/remove/{id}")
-    public Race removeRace(@PathVariable Long race_id) throws RaceServiceException {
-        return raceService.removeRace(race_id);
+    public Race removeRace(@PathVariable Long raceId) throws RaceServiceException {
+        return raceService.removeRace(raceId);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

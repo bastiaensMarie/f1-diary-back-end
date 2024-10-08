@@ -13,23 +13,23 @@ public class Racer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long racer_id;
+    private Long racerId;
 
     private String firstName;
 
     private String lastName;
 
     @ManyToOne
-    @JoinColumn(name = "team_id")
+    @JoinColumn(name = "teamId")
     private Team team;
 
-    @OneToMany(mappedBy = "dod_id")
+    @OneToMany(mappedBy = "dodId")
     private List<Race> dod;
 
-    @OneToMany(mappedBy = "fastLap_id")
+    @OneToMany(mappedBy = "fastLapId")
     private List<Race> fastLap;
 
-    @OneToMany(mappedBy = "racer_id", orphanRemoval = true)
+    @OneToMany(mappedBy = "racerId", orphanRemoval = true)
     private List<RaceResult> raceResults;
 
 
@@ -46,12 +46,12 @@ public class Racer {
         this.totalPoints = totalPoints;
     }
 
-    public Long getRacer_id() {
-        return racer_id;
+    public Long getRacerId() {
+        return racerId;
     }
 
-    public void setRacer_id(Long racer_id) {
-        this.racer_id = racer_id;
+    public void setRacerId(Long racerId) {
+        this.racerId = racerId;
     }
 
     public String getFirstName() {

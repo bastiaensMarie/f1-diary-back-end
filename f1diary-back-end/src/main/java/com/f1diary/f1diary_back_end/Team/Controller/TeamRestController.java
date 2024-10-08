@@ -31,8 +31,8 @@ public class TeamRestController {
     }
 
     @DeleteMapping("/remove/{id}")
-    public Team removeTeam(@PathVariable Long team_id) throws TeamServiceException {
-        return teamService.removeTeam(team_id);
+    public Team removeTeam(@PathVariable Long teamId) throws TeamServiceException {
+        return teamService.removeTeam(teamId);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

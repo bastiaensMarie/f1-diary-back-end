@@ -13,7 +13,7 @@ public class Race {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long race_id;
+    private Long raceId;
 
     private String raceName;
 
@@ -23,17 +23,17 @@ public class Race {
 
     @ManyToOne
     @JoinColumn(name = "dod")
-    private Racer dod_id;
+    private Racer dodId;
 
     @ManyToOne
     @JoinColumn(name = "fastLap")
-    private Racer fastLap_id;
+    private Racer fastLapId;
 
     @ManyToOne
     @JoinColumn(name = "pitStop")
     private Team pitStop;
 
-    @OneToMany(mappedBy = "race_id")
+    @OneToMany(mappedBy = "raceId")
     private List<RaceResult> raceResults;
 
 
@@ -48,12 +48,12 @@ public class Race {
     }
 
 
-    public Long getRace_id() {
-        return race_id;
+    public Long getRaceId() {
+        return raceId;
     }
 
-    public void setRace_id(Long race_id) {
-        this.race_id = race_id;
+    public void setRaceId(Long raceId) {
+        this.raceId = raceId;
     }
 
     public String getRaceName() {
@@ -80,20 +80,20 @@ public class Race {
         this.year = year;
     }
 
-    public Racer getDod_id() {
-        return dod_id;
+    public Racer getDodId() {
+        return dodId;
     }
 
-    public void setDod_id(Racer dod_id) {
-        this.dod_id = dod_id;
+    public void setDodId(Racer dodId) {
+        this.dodId = dodId;
     }
 
-    public Racer getFastLap_id() {
-        return fastLap_id;
+    public Racer getFastLapId() {
+        return fastLapId;
     }
 
-    public void setFastLap_id(Racer fastLap_id) {
-        this.fastLap_id = fastLap_id;
+    public void setFastLap_id(Racer fastLapId) {
+        this.fastLapId = fastLapId;
     }
 
 

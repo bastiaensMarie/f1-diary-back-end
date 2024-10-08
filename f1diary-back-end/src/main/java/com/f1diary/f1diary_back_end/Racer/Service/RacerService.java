@@ -18,7 +18,7 @@ public class RacerService {
     }
 
     public List<Racer> getAllRacers() {
-        return racerRepository.findAllRacers();
+        return racerRepository.findAll();
     }
 
     public Racer addRacer(Racer racer) throws RacerServiceException{
@@ -30,8 +30,8 @@ public class RacerService {
         }
     }
 
-    public Racer removeRacer(Long racer_id) throws RacerServiceException {
-        Racer toRemove = racerRepository.findRacerByRacerId(racer_id);
+    public Racer removeRacer(Long racerId) throws RacerServiceException {
+        Racer toRemove = racerRepository.findRacerByRacerId(racerId);
         if (toRemove == null) {
             throw new RacerServiceException("Racer", "Cannot remove empty racer");
         } else {

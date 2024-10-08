@@ -6,6 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface RaceResultRepository extends JpaRepository<RaceResult, Long> {
-    public List<RaceResult> findAllRaceResults();
-    public RaceResult findRaceResultByRaceResultId(Long raceResult_id);
+    public RaceResult findRaceResultByRaceResultId(Long raceResultId);
 }

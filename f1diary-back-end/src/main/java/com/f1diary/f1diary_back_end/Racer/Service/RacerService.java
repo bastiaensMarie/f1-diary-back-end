@@ -14,6 +14,8 @@ public class RacerService {
 
     @Autowired
     RacerRepository racerRepository;
+
+    @Autowired
     TeamRepository teamRepository;
 
     public RacerService() {
@@ -24,10 +26,12 @@ public class RacerService {
         return racerRepository.findAll();
     }
 
-    public Racer addRacer(Racer racer) throws RacerServiceException{
+    public Racer addRacer(Racer racer, Long teamId) throws RacerServiceException{
+        Team team = teamRepository.findTeamByTeamId(teamId);
         if (racer == null) {
             throw new RacerServiceException("Racer", "Cannot add empty racer");
         } else {
+            racer.setTeam(team);
             Racer racer1 = racerRepository.save(racer);
             return racer1;
         }
@@ -43,16 +47,5 @@ public class RacerService {
         }
     }
 
-    public Racer addTeamToRacer(Long teamId, Long racerId) throws RacerServiceException {
-        Team toAdd = teamRepository.findTeamByTeamId(teamId);
-        Racer racer = racerRepository.findRacerByRacerId(racerId);
-        if (toAdd == null) {
-            throw new RacerServiceException("Racer", "Cannot add to empty team");
-        } else if (racer == null){
-            throw new RacerServiceException("Racer", "Cannot add empty racer to team");
-        } else {
-            racer.setTeam(toAdd);
-            return racer;
-        }
-    }
+
 }

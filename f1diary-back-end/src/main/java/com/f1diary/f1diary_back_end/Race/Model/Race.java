@@ -3,6 +3,7 @@ package com.f1diary.f1diary_back_end.Race.Model;
 import com.f1diary.f1diary_back_end.RaceResult.Model.RaceResult;
 import com.f1diary.f1diary_back_end.Racer.Model.Racer;
 import com.f1diary.f1diary_back_end.Team.Model.Team;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -34,6 +35,7 @@ public class Race {
     @JoinColumn(name = "pitStop")
     private Team pitStop;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "raceId")
     private List<RaceResult> raceResults;
 

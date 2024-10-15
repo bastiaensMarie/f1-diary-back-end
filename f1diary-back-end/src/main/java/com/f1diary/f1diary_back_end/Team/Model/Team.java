@@ -20,6 +20,7 @@ public class Team {
 
     private int totalPoints;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "team")
     private List<Racer> racers;
 
@@ -27,6 +28,7 @@ public class Team {
     @OneToMany(mappedBy = "pitStop")
     private List<Race> pitStop;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "teamId")
     private List<RaceResult> raceResults;
 

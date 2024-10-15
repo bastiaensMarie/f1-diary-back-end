@@ -24,9 +24,9 @@ public class RacerRestController {
         return racerService.getAllRacers();
     }
 
-    @PostMapping("/add")
-    public Racer addRacer(@RequestBody Racer racer) throws RacerServiceException {
-        return racerService.addRacer(racer);
+    @PostMapping("/add/{teamId}")
+    public Racer addRacer(@RequestBody Racer racer, @PathVariable Long teamId) throws RacerServiceException {
+        return racerService.addRacer(racer, teamId);
     }
 
     @DeleteMapping("/remove/{id}")
@@ -34,10 +34,6 @@ public class RacerRestController {
         return racerService.removeRacer(racerId);
     }
 
-    @PutMapping("/addTeam/{teamId}/{racerId}")
-    public Racer addTeamToRacer(@PathVariable int teamId, @PathVariable int racerId) throws RacerServiceException {
-        return racerService.addTeamToRacer((long) teamId, (long)racerId);
-    }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({ MethodArgumentNotValidException.class })

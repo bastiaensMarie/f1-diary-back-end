@@ -43,6 +43,9 @@ public class RaceResultService {
         if (raceResult == null) {
             throw new RaceResultServiceException("RaceResult", "Cannot add empty raceresult");
         } else {
+            int points = raceResult.getPoints();
+            team.setTotalPoints(team.getTotalPoints() + points);
+            racer.setTotalPoints(racer.getTotalPoints() + points);
             raceResult.setTeamId(team);
             raceResult.setRacerId(racer);
             raceResult.setRaceId(race);

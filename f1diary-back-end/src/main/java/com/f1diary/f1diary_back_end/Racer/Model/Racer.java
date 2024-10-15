@@ -36,9 +36,8 @@ public class Racer {
     @OneToMany(mappedBy = "racerId", orphanRemoval = true)
     private List<RaceResult> raceResults;
 
-
-
     private int totalPoints;
+
 
     public Racer() {
 

@@ -25,9 +25,9 @@ public class RaceResultRestController {
         return raceResultService.getAllRaceResults();
     }
 
-    @PostMapping("/add")
-    public RaceResult addRaceResult(@RequestBody RaceResult raceResult) throws RaceResultServiceException {
-        return raceResultService.addRaceResult(raceResult);
+    @PostMapping("/add/{racerId}/{teamId}/{raceId}")
+    public RaceResult addRaceResult(@RequestBody RaceResult raceResult, @PathVariable Long racerId, @PathVariable Long teamId, @PathVariable Long raceId) throws RaceResultServiceException {
+        return raceResultService.addRaceResult(raceResult, teamId, racerId, raceId);
     }
 
     @DeleteMapping("/remove/{id}")

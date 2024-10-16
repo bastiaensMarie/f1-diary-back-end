@@ -34,6 +34,11 @@ public class RacerRestController {
         return racerService.removeRacer(racerId);
     }
 
+    @GetMapping("/wdc")
+    public List<Racer> getAllRacersSortedByTotalPoints() {
+        return racerService.getAllRacersSortedByTotalPoints();
+    }
+
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({ MethodArgumentNotValidException.class })

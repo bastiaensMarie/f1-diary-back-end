@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface RacerRepository extends JpaRepository<Racer, Long> {
     public Racer findRacerByRacerId(Long racerId);
+    public List<Racer> findAllByOrderByTotalPointsDesc();
 }

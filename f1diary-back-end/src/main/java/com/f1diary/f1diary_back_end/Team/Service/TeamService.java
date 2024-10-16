@@ -38,4 +38,9 @@ public class TeamService {
             return toRemove;
         }
     }
+
+    public List<Team> getAllTeamsSortedByTotalPoints() {
+        return teamRepository.findAllByOrderByTotalPointsDesc();
+
+    }
 }

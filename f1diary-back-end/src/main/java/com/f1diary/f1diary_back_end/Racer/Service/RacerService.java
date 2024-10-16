@@ -47,5 +47,9 @@ public class RacerService {
         }
     }
 
+    public List<Racer> getAllRacersSortedByTotalPoints() {
+        return racerRepository.findAllByOrderByTotalPointsDesc();
+    }
+
 
 }

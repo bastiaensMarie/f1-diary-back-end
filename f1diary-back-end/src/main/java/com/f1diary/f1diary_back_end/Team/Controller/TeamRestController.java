@@ -35,6 +35,11 @@ public class TeamRestController {
         return teamService.removeTeam(teamId);
     }
 
+    @GetMapping("/wcc")
+    public List<Team> getAllTeamsSortedByTotalPoints() {
+        return teamService.getAllTeamsSortedByTotalPoints();
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({ MethodArgumentNotValidException.class })
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {

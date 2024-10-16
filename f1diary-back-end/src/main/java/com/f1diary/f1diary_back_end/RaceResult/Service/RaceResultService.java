@@ -63,4 +63,9 @@ public class RaceResultService {
             return toRemove;
         }
     }
+
+    public List<RaceResult> getFinishingPositionForCertainRace (Long raceId) {
+        Race race = raceRepository.findRaceByRaceId(raceId);
+        return raceResultRepository.findRaceResultsByRaceIdOrderByPosition(race);
+    }
 }

@@ -35,6 +35,11 @@ public class RaceResultRestController {
         return raceResultService.removeRaceResult(raceResultId);
     }
 
+    @GetMapping("/finish/{raceId}")
+    public List<RaceResult> getFinishPosition(@PathVariable Long raceId) {
+        return raceResultService.getFinishingPositionForCertainRace(raceId);
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({ MethodArgumentNotValidException.class })
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {

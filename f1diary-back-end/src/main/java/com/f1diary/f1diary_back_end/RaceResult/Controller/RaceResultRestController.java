@@ -30,7 +30,7 @@ public class RaceResultRestController {
         return raceResultService.addRaceResult(raceResult, teamId, racerId, raceId);
     }
 
-    @DeleteMapping("/remove/{id}")
+    @DeleteMapping("/remove/{raceResultId}")
     public RaceResult removeRaceResult(@PathVariable Long raceResultId) throws RaceResultServiceException {
         return raceResultService.removeRaceResult(raceResultId);
     }

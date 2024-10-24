@@ -29,7 +29,7 @@ public class RacerRestController {
         return racerService.addRacer(racer, teamId);
     }
 
-    @DeleteMapping("/remove/{id}")
+    @DeleteMapping("/remove/{racerId}")
     public Racer removeRacer(@PathVariable Long racerId) throws RacerServiceException {
         return racerService.removeRacer(racerId);
     }

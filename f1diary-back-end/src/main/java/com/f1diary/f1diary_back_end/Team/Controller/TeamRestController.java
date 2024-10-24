@@ -30,7 +30,7 @@ public class TeamRestController {
         return teamService.addTeam(team);
     }
 
-    @DeleteMapping("/remove/{id}")
+    @DeleteMapping("/remove/{teamId}")
     public Team removeTeam(@PathVariable Long teamId) throws TeamServiceException {
         return teamService.removeTeam(teamId);
     }
